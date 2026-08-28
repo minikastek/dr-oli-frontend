@@ -1,0 +1,10 @@
+/* Logo recolorable: el PNG transparente actúa de máscara */
+.logo {
+  display: inline-block;
+  aspect-ratio: 338 / 270;
+  width: auto;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask: url('/logo.png') center / contain no-repeat;
+  mask: url('/logo.png') center / contain no-repeat;
+}
