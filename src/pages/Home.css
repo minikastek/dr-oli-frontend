@@ -206,8 +206,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem 1.1rem;
-  max-width: 720px;
-  margin-top: 0.5rem;
+  max-width: none;
+  margin-top: 0;
 }
 
 .booking__form label {
