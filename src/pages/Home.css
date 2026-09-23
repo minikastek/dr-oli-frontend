@@ -136,23 +136,37 @@
 
 .areas {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 1.25rem;
+  margin-bottom: 2.5rem;
 }
 
 .area {
   padding-top: 0.75rem;
   border-top: 2px solid var(--blue);
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.area::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.05rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--blue);
 }
 
 .area h3 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   margin-bottom: 0.4rem;
 }
 
 .area p {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.55;
 }
 
@@ -199,7 +213,47 @@
   color: var(--muted);
   line-height: 1.55;
   margin-bottom: 0.7rem;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+}
+
+.lawyer__focus {
+  margin-bottom: 0.85rem;
+}
+
+.lawyer__focus-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 0.45rem;
+}
+
+.lawyer__focus ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.lawyer__focus li {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.lawyer__focus strong {
+  color: var(--navy);
+  display: block;
+  margin-bottom: 0.1rem;
+}
+
+.contact__row a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .booking__form {

@@ -13,31 +13,81 @@ const lawyerDisplay = [
   {
     id: 'mariela',
     role: 'Socia',
-    bio: 'Lidera el estudio con un enfoque cercano y resolutivo en asesoramiento legal integral.',
+    bio: 'Con más de 28 años de trayectoria en el ejercicio de la abogacía, ofrezco un asesoramiento jurídico integral, estratégico y comprometido. Mi práctica profesional abarca el patrocinio y la representación legal en diversas áreas del derecho, brindando soluciones eficaces tanto a clientes particulares como a empresas.',
+    focusAreas: [
+      {
+        title: 'Derecho Civil y Comercial',
+        desc: 'Asesoramiento en contratación, procesos sucesorios, ejecuciones comerciales, derechos reales y resolución de controversias patrimoniales.',
+      },
+      {
+        title: 'Daños y Perjuicios',
+        desc: 'Representación integral en reclamos por responsabilidad civil, accidentes de tránsito, incumplimientos contractuales y reparación de perjuicios materiales y morales.',
+      },
+      {
+        title: 'Derecho Penal',
+        desc: 'Asistencia y representación técnica en causas penales, querellas y asesoramiento preventivo, velando por la estricta tutela de garantías constitucionales.',
+      },
+      {
+        title: 'Gestión y Litigios',
+        desc: 'Sólida experiencia en la conducción de litigios complejos y en la mediación extrajudicial para la resolución ágil de conflictos.',
+      },
+    ],
     photo:
       'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
   },
   {
     id: 'laura',
     role: 'Abogada',
-    bio: 'Acompaña a particulares y empresas en contratos, conflictos y gestión jurídica cotidiana.',
+    bio: 'Abogada especialista en derecho bancario y contractual con doble titulación como Abogada y Escribana Pública Nacional. Con 8 años de experiencia continúa asesorando a entidades financieras, combinó la práctica tradicional en materia Civil, Comercial, Defensa del Consumidor y Salud con una visión moderna de los riesgos digitales (diplomada en Cibercrimen) y las relaciones laborales (cursando diplomatura en Derecho del Trabajo). Mi objetivo es transformar la complejidad legal en seguridad jurídica y eficiencia operativa para mis clientes.',
     photo:
       'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
   },
   {
     id: 'ana',
     role: 'Abogada',
-    bio: 'Brinda asesoramiento claro y humano en procesos familiares y consultas personalizadas.',
+    bio: 'Abogada interviniente en la gestión integral de causas civiles y comerciales, redacción y análisis de contratos, ejecución de pagarés, negociaciones extrajudiciales y representación legal de empresas. Su formación se complementa con una Diplomatura en Derecho Ambiental, y actualización en Derecho Minero, fortaleciendo un perfil profesional orientado a áreas estratégicas de la gestión pública y privada.',
     photo:
       'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=600&q=80',
   },
 ]
 
 const areas = [
-  { title: 'Asesoramiento laboral', desc: 'Despidos, liquidaciones y negociaciones.' },
-  { title: 'Derecho societario', desc: 'Constitución, contratos y conflictos societarios.' },
-  { title: 'Divorcios', desc: 'Procesos consensuados y contenciosos.' },
-  { title: 'Sucesiones', desc: 'Trámites hereditarios con acompañamiento integral.' },
+  {
+    title: 'Sucesiones',
+    desc: 'Acompañamos a las familias en todos los trámites sucesorios, brindando soluciones ágiles y seguras para la transmisión del patrimonio.',
+  },
+  {
+    title: 'ART y Accidentes de Trabajo',
+    desc: 'Reclamamos las indemnizaciones que corresponden a trabajadores afectados por accidentes o enfermedades laborales.',
+  },
+  {
+    title: 'Derecho de Familia',
+    desc: 'Intervenimos con sensibilidad y firmeza en conflictos familiares, priorizando soluciones eficaces y duraderas.',
+  },
+  {
+    title: 'Defensa del Consumidor',
+    desc: 'Actuamos frente a abusos de empresas, bancos, aseguradoras y prestadores de servicios.',
+  },
+  {
+    title: 'Amparos de Salud',
+    desc: 'Protegemos el acceso a tratamientos, medicamentos y prestaciones médicas cuando son negados injustamente.',
+  },
+  {
+    title: 'Sociedades Comerciales',
+    desc: 'Asesoramos emprendedores, profesionales y empresas en la constitución y desarrollo de sus proyectos.',
+  },
+  {
+    title: 'Daños y Perjuicios',
+    desc: 'Buscamos la reparación integral de los daños sufridos por nuestros clientes.',
+  },
+  {
+    title: 'Derecho Minero',
+    desc: 'Brindamos asesoramiento especializado para la actividad minera, con conocimiento de la normativa vigente y de las particularidades del sector.',
+  },
+  {
+    title: 'Derechos Reales',
+    desc: 'Brindamos asesoramiento legal integral en la constitución, defensa y gestión de derechos de propiedad como juicios de Usucapión y demás derechos reales, garantizando la seguridad jurídica en sus operaciones e inmuebles. Efectuamos también trámites ante el registro.',
+  },
 ]
 
 export default function Home() {
@@ -87,7 +137,13 @@ export default function Home() {
         const api = apiLawyers.find((l) => l.id === d.id)
         return {
           ...d,
-          name: api?.name ?? d.id,
+          name:
+            api?.name ??
+            (d.id === 'mariela'
+              ? 'Mariela Olivera Villafañe'
+              : d.id === 'laura'
+                ? 'Laura Elizabeth Chumbita'
+                : 'Ana Belén Gómez'),
           specialty: api?.specialty ?? '',
         }
       }),
@@ -175,8 +231,22 @@ export default function Home() {
               <img className="lawyer__photo" src={lawyer.photo} alt={lawyer.name} />
               <h3>{lawyer.name}</h3>
               <p className="lawyer__role">{lawyer.role}</p>
-              <p className="lawyer__specialty">{lawyer.specialty}</p>
+              {lawyer.specialty ? (
+                <p className="lawyer__specialty">{lawyer.specialty}</p>
+              ) : null}
               <p className="lawyer__bio">{lawyer.bio}</p>
+              {'focusAreas' in lawyer && lawyer.focusAreas ? (
+                <div className="lawyer__focus">
+                  <p className="lawyer__focus-title">Áreas de especialización</p>
+                  <ul>
+                    {lawyer.focusAreas.map((area) => (
+                      <li key={area.title}>
+                        <strong>{area.title}:</strong> {area.desc}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               <a
                 className="btn btn--small"
                 href="#turnos"
@@ -190,9 +260,18 @@ export default function Home() {
       </section>
 
       <section id="areas" className="section section--tint">
-        <p className="eyebrow">Conocimiento &amp; experiencia</p>
-        <h2>Nuestras áreas de especialización</h2>
+        <p className="eyebrow">Áreas de especialización</p>
+        <h2>Nuestros servicios</h2>
         <div className="rule" />
+        <p className="lead">Defendemos sus derechos, protegemos sus intereses.</p>
+        <div className="areas">
+          {areas.map((a) => (
+            <article key={a.title} className="area">
+              <h3>{a.title}</h3>
+              <p>{a.desc}</p>
+            </article>
+          ))}
+        </div>
         <div className="ig-head">
           <p>
             Seguinos en Instagram{' '}
@@ -218,14 +297,6 @@ export default function Home() {
             </p>
           </div>
         )}
-        <div className="areas">
-          {areas.map((a) => (
-            <article key={a.title} className="area">
-              <h3>{a.title}</h3>
-              <p>{a.desc}</p>
-            </article>
-          ))}
-        </div>
       </section>
 
       <section className="banner">
@@ -371,22 +442,24 @@ export default function Home() {
           <p>
             <strong>Email</strong>
             <br />
-            consultas@olilawyer.com
+            <a href="mailto:estudio.oliveracarrion@gmail.com">
+              estudio.oliveracarrion@gmail.com
+            </a>
           </p>
           <p>
             <strong>Teléfono</strong>
             <br />
-            +54 11 5555-0101
+            <a href="tel:+543804859460">380-4859460</a>
           </p>
           <p>
             <strong>Horarios</strong>
             <br />
-            Lun a Vie 9 a 18 hs
+            De lunes a miércoles de 18 a 21 hs.
           </p>
           <p>
             <strong>Dirección</strong>
             <br />
-            Av. Corrientes 1234, CABA
+            Remedios de Escalada Nº 1094, Bº Shincal, Ciudad de La Rioja
           </p>
         </div>
       </section>
