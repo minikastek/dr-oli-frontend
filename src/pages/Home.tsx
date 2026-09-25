@@ -12,42 +12,21 @@ import './Home.css'
 const lawyerDisplay = [
   {
     id: 'mariela',
-    role: 'Socia',
+    role: 'Socia Fundadora',
     bio: 'Con más de 28 años de trayectoria en el ejercicio de la abogacía, ofrezco un asesoramiento jurídico integral, estratégico y comprometido. Mi práctica profesional abarca el patrocinio y la representación legal en diversas áreas del derecho, brindando soluciones eficaces tanto a clientes particulares como a empresas.',
-    focusAreas: [
-      {
-        title: 'Derecho Civil y Comercial',
-        desc: 'Asesoramiento en contratación, procesos sucesorios, ejecuciones comerciales, derechos reales y resolución de controversias patrimoniales.',
-      },
-      {
-        title: 'Daños y Perjuicios',
-        desc: 'Representación integral en reclamos por responsabilidad civil, accidentes de tránsito, incumplimientos contractuales y reparación de perjuicios materiales y morales.',
-      },
-      {
-        title: 'Derecho Penal',
-        desc: 'Asistencia y representación técnica en causas penales, querellas y asesoramiento preventivo, velando por la estricta tutela de garantías constitucionales.',
-      },
-      {
-        title: 'Gestión y Litigios',
-        desc: 'Sólida experiencia en la conducción de litigios complejos y en la mediación extrajudicial para la resolución ágil de conflictos.',
-      },
-    ],
-    photo:
-      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+    photo: '/abogadas/Mariela.png',
   },
   {
     id: 'laura',
     role: 'Abogada',
     bio: 'Abogada especialista en derecho bancario y contractual con doble titulación como Abogada y Escribana Pública Nacional. Con 8 años de experiencia continúa asesorando a entidades financieras, combinó la práctica tradicional en materia Civil, Comercial, Defensa del Consumidor y Salud con una visión moderna de los riesgos digitales (diplomada en Cibercrimen) y las relaciones laborales (cursando diplomatura en Derecho del Trabajo). Mi objetivo es transformar la complejidad legal en seguridad jurídica y eficiencia operativa para mis clientes.',
-    photo:
-      'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
+    photo: '/abogadas/Laura.jpeg',
   },
   {
     id: 'ana',
     role: 'Abogada',
     bio: 'Abogada interviniente en la gestión integral de causas civiles y comerciales, redacción y análisis de contratos, ejecución de pagarés, negociaciones extrajudiciales y representación legal de empresas. Su formación se complementa con una Diplomatura en Derecho Ambiental, y actualización en Derecho Minero, fortaleciendo un perfil profesional orientado a áreas estratégicas de la gestión pública y privada.',
-    photo:
-      'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=600&q=80',
+    photo: '/abogadas/belen.jpeg',
   },
 ]
 
@@ -235,18 +214,6 @@ export default function Home() {
                 <p className="lawyer__specialty">{lawyer.specialty}</p>
               ) : null}
               <p className="lawyer__bio">{lawyer.bio}</p>
-              {'focusAreas' in lawyer && lawyer.focusAreas ? (
-                <div className="lawyer__focus">
-                  <p className="lawyer__focus-title">Áreas de especialización</p>
-                  <ul>
-                    {lawyer.focusAreas.map((area) => (
-                      <li key={area.title}>
-                        <strong>{area.title}:</strong> {area.desc}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
               <a
                 className="btn btn--small"
                 href="#turnos"

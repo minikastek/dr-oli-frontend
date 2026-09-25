@@ -1,0 +1,104 @@
+.wa-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.wa-float__fab {
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 24px rgba(18, 59, 107, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wa-float__fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(18, 59, 107, 0.34);
+}
+
+.wa-float__fab svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.wa-float__bubble {
+  width: min(18.5rem, calc(100vw - 2.5rem));
+  padding: 1rem 1.1rem;
+  background: var(--white);
+  color: var(--text);
+  border: 1px solid #d7dde5;
+  box-shadow: 0 12px 32px rgba(12, 13, 15, 0.16);
+  animation: wa-rise 0.22s ease both;
+}
+
+.wa-float__bubble p {
+  margin: 0 0 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.wa-float__actions {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.wa-float__btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.wa-float__btn--ghost {
+  background: transparent;
+  color: var(--navy);
+  border-color: #c9d0d8;
+}
+
+.wa-float__btn--solid {
+  background: #25d366;
+  color: #fff;
+}
+
+.wa-float__btn--solid:hover {
+  filter: brightness(0.96);
+}
+
+@keyframes wa-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .wa-float {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
