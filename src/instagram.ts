@@ -13,4 +13,6 @@ export const IG_HANDLE = '@estudio.oliveracarrion'
  */
 export const IG_POSTS: string[] = [
   'https://www.instagram.com/p/DcRGwnAse0e/',
+  'https://www.instagram.com/p/DcyxKj_M3Iy/',
+  'https://www.instagram.com/p/DcoWLtFMJVC/',
 ]

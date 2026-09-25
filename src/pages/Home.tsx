@@ -429,6 +429,23 @@ export default function Home() {
             Remedios de Escalada Nº 1094, Bº Shincal, Ciudad de La Rioja
           </p>
         </div>
+        <div className="contact__map">
+          <iframe
+            title="Ubicación del estudio — Remedios de Escalada 1094, La Rioja"
+            src="https://www.google.com/maps?q=Remedios+de+Escalada+1094,+Barrio+Shincal,+La+Rioja,+Argentina&hl=es&z=16&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+          <a
+            className="contact__map-link"
+            href="https://www.google.com/maps/search/?api=1&query=Remedios+de+Escalada+1094,+Barrio+Shincal,+La+Rioja,+Argentina"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Abrir en Google Maps
+          </a>
+        </div>
       </section>
 
       <footer className="footer">
