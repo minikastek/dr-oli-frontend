@@ -1,6 +1,15 @@
 import type { PublicLawyer } from './availability'
 
-const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:3000').replace(/\/+$/, '')
+function apiBase() {
+  let url = (import.meta.env.VITE_API_URL || 'http://localhost:3000').replace(/\/+$/, '')
+  // ponytail: Vite embebe VITE_API_URL en el build; si Railway quedó en http, el navegador bloquea mixed content
+  if (typeof window !== 'undefined' && window.location.protocol === 'https:' && url.startsWith('http://')) {
+    url = `https://${url.slice('http://'.length)}`
+  }
+  return url
+}
+
+const API_URL = apiBase()
 
 export async function fetchPublicLawyers(): Promise<PublicLawyer[]> {
   const res = await fetch(`${API_URL}/api/public/lawyers`)
